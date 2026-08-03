@@ -420,7 +420,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
         <p style="font-size:.93rem;color:#5A6E5E;text-align:center;line-height:1.85;margin:0 0 1.6rem">אשלח לך הודעה אחת כשהתאריכים ייסגרו. בלי דיוור, בלי הצפה, ואפשר להסיר בכל רגע.</p>
         <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
           <input type="hidden" name="form-name" value="waitlist">
-          <p hidden><label>אל תמלאי: <input name="bot-field"></label></p>
+          <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;opacity:0;pointer-events:none" aria-hidden="true"><label>אל תמלאי שדה זה<input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
           <fieldset style="border:none;padding:0;margin:0 0 1.3rem">
             <legend style="font-size:.8rem;color:#64786A;margin-bottom:.7rem;padding:0">מה מעניין אותך?</legend>
             <label style="display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:#2C3A2F;padding:.5rem 0;cursor:pointer">
