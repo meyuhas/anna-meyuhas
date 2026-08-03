@@ -33,6 +33,7 @@
   <input type="text" name="name">
   <input type="text" name="contact">
   <input type="checkbox" name="workshops">
+  <textarea name="note"></textarea>
   <input name="bot-field">
 </form>
 <x-dc>
@@ -421,7 +422,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
           <input type="hidden" name="form-name" value="waitlist">
           <p hidden><label>אל תמלאי: <input name="bot-field"></label></p>
           <fieldset style="border:none;padding:0;margin:0 0 1.3rem">
-            <legend style="font-size:.8rem;color:#64786A;margin-bottom:.7rem;padding:0">מה מעניין אותך? (אפשר לסמן כמה)</legend>
+            <legend style="font-size:.8rem;color:#64786A;margin-bottom:.7rem;padding:0">מה מעניין אותך?</legend>
             <label style="display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:#2C3A2F;padding:.5rem 0;cursor:pointer">
               <input type="checkbox" name="workshops" value="הדרך שלי מכאן" style="width:17px;height:17px;accent-color:#7B9E87;flex-shrink:0">
               הדרך שלי מכאן · קבוצה לנשים בפרידה וגירושין</label>
@@ -441,6 +442,10 @@ input,textarea,button{font-family:'Assistant',sans-serif}
               <label for="wl-contact" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">טלפון או מייל</label>
               <input id="wl-contact" type="text" name="contact" required placeholder="לאן לעדכן" style="width:100%;box-sizing:border-box;direction:rtl;padding:.8rem 1rem;border:1px solid rgba(123,158,135,.25);border-radius:12px;font-size:.93rem;color:#2C3A2F;background:#FAFBFA;outline:none;font-weight:300">
             </div>
+          </div>
+          <div style="margin-top:.9rem">
+            <label for="wl-note" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">משהו שתרצי שאדע? <span style="color:#8FA394">(לא חובה)</span></label>
+            <textarea id="wl-note" name="note" rows="3" placeholder="שאלה, התלבטות, או מה הביא אותך לכאן" style="width:100%;box-sizing:border-box;direction:rtl;padding:.8rem 1rem;border:1px solid rgba(123,158,135,.25);border-radius:12px;font-size:.93rem;color:#2C3A2F;background:#FAFBFA;outline:none;font-weight:300;resize:vertical;line-height:1.8;min-height:82px"></textarea>
           </div>
           <button type="submit" style="width:100%;margin-top:1.1rem;background:#7B9E87;color:#fff;border:none;padding:.95rem;border-radius:12px;font-size:.95rem;cursor:pointer;transition:opacity .2s" style-hover="opacity:.87">להצטרפות לרשימה</button>
         </form>
