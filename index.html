@@ -29,6 +29,12 @@
   <textarea name="message"></textarea>
   <input name="bot-field">
 </form>
+<form name="waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name">
+  <input type="text" name="contact">
+  <input type="checkbox" name="workshops">
+  <input name="bot-field">
+</form>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,12 +166,34 @@ input,textarea,button{font-family:'Assistant',sans-serif}
         <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0">אלו הן כמה חוויות חיים שנשים מגיעות מהן. אולי אחת מהן תרגיש לך מוכרת</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;border:1px solid rgba(123,158,135,.15);border-radius:20px;overflow:hidden;margin-top:3rem;background:rgba(123,158,135,.15)">
-        <sc-for list="{{ personas }}" as="p" hint-placeholder-count="6">
-          <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
-            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">{{ p.title }}</p>
-            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">{{ p.body }}</p>
+                  <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
+            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">בין קריירה למשפחה</p>
+            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">הימים מלאים והשאלה "ואיפה אני?" עולה 
+בעיקר בשקט של הלילה.</p>
           </div>
-        </sc-for>
+                  <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
+            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">בניית עסק או תפקיד</p>
+            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">יודעת להוביל ולהחליט. לפעמים הגוף מבקש קצב אחר מזה שהראש קבע.</p>
+          </div>
+                  <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
+            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">תחושת שחיקה</p>
+            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">הכל ממשיך לזוז ובכל זאת יש ריקנות. 
+עושה הרבה ומרגישה פחות משמעות.</p>
+          </div>
+                  <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
+            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">תקופת מעבר או שינוי בזוגיות</p>
+            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">לא במשבר וגם לא ממש בשקט. 
+משהו מבקש מקום שעוד לא קיבל.</p>
+          </div>
+                  <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
+            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">חיפוש אחר עומק</p>
+            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">כבר היו כלים ותובנות. עכשיו מתבקש משהו שנוגע עמוק יותר.</p>
+          </div>
+                  <div style="background:#fff;padding:1.9rem 1.7rem;transition:background .2s" style-hover="background:#F0F6F2">
+            <p style="font-size:1.05rem;font-weight:500;color:#2C3A2F;margin:0 0 .5rem">בלי מילים</p>
+            <p style="font-size:.9rem;color:#64786A;line-height:1.8;margin:0">אין "בעיה" מסודרת. יש רק תחושה. 
+זה מספיק כדי להתחיל.</p>
+          </div>
       </div>
       <p style="max-width:660px;margin:2.6rem auto 0;text-align:center;font-size:1.12rem;color:#5A6E5E;line-height:1.7;font-family:'Bellefair',serif">ולפעמים מגיעות אלי אחרי חרדות, דיכאון או אובדן. <br>גם לזה יש מקום כאן, בזהירות ובקצב שנכון לך.</p>
     </div>
@@ -183,9 +211,12 @@ input,textarea,button{font-family:'Assistant',sans-serif}
         <div style="margin-top:2.6rem;border-top:1px solid rgba(123,158,135,.18);padding-top:2rem">
           <p style="font-size:.76rem;font-weight:500;color:#7B9E87;letter-spacing:.14em;margin:0 0 1.2rem">רקע מקצועי</p>
           <div style="display:flex;flex-direction:column">
-            <sc-for list="{{ creds }}" as="c" hint-placeholder-count="6">
-              <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">{{ c }}</p>
-            </sc-for>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">פסיכותרפיה גופנית־נפשית מבוססת מיינדפולנס, אוניברסיטת חיפה</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">התמקדות Focusing, לימודים והנחיה</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">אימון עסקי ואישי, ליווי עסקים ובעלי עסקים</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">הכשרת מורי יוגה, לימודי בודהיזם ושש עשרה המעלות</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">תוכנית FDCW לפיתוח חמלה וחכמה</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">ניסיון טיפולי במרכז רקמן, עמותת ניצן וקליניקה פרטית</p>
           </div>
         </div>
       </div>
@@ -198,13 +229,52 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0;text-wrap:pretty">כמו מכחול שנטבל בכמה צבעים ונפרש על הקנבס, כל מפגש מורכב אחרת. <br>יש קעריות שונות ובכל אחת מרכיבים שיכולים להירקם עבורך, לפי מה שמתבקש באותו רגע.</p>
     </div>
     <div style="max-width:1060px;margin:3.4rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:2.2rem 1.4rem">
-      <sc-for list="{{ modalities }}" as="m" hint-placeholder-count="9">
-        <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
-          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url({{ m.img }});background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale({{ m.scale }});mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
-          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">{{ m.name }}</p>
-          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">{{ m.desc }}</p>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-1.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">התמקדות</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">הקשבה לתחושה הפנימית לפני המילים</p>
         </div>
-      </sc-for>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-2.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">גוף</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">עבודה סומטית עם מה שהגוף יודע ומחזיק</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-3.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">מיינדפולנס</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">נוכחות קשובה ולא שיפוטית ברגע הזה</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-4.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">רוח</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">מרחב להקשבה עמוקה יותר, למי שיש לה קריאה</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-5.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">אימון עסקי ואישי</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">שפת המעשה והעשייה</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-6.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.55);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">ווייס דיאלוג</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">היכרות עם הקולות השונים שחיים בתוכך</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-7.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">דמיון מודרך</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">דרך חווייתית להגיע למה שמתחת לפני השטח</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-8.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">הכלי לשינוי</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">תרגול שמלווה אותך גם בין המפגשים</p>
+        </div>
+              <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-9.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">כלי הביחד</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">הקשר בין מטפלת למטופלת, 
+ מה שנוצר בין שתינו בחדר</p>
+        </div>
     </div>
 
     <div style="max-width:1060px;margin:clamp(4rem,8vw,6.5rem) auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(2rem,5vw,4rem);align-items:center">
@@ -224,24 +294,36 @@ input,textarea,button{font-family:'Assistant',sans-serif}
         <h2 style="font-family:'Bellefair',serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:300;line-height:1.35;margin:0 0 1.2rem">אני מחכה לך</h2>
         <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0">במרחב שקט ומוגן, שבו אפשר לתת ללב להיפתח בקצב שלך.</p>
       </div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1.4rem;margin-top:3rem">
-        <sc-for list="{{ places }}" as="pl" hint-placeholder-count="3">
-          <div style="height:100%;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1px solid rgba(123,158,135,.15);background:#fff">
-            <sc-if value="{{ pl.photo }}" hint-placeholder-val="{{ false }}">
-              <div style="aspect-ratio:4/3;background-image:url({{ pl.photo }});background-size:cover;background-position:center"></div>
-            </sc-if>
-            <sc-if value="{{ pl.noPhoto }}" hint-placeholder-val="{{ true }}">
-              <div style="aspect-ratio:4/3;background:linear-gradient(150deg,#F5F9F6,#FBF5EF);display:flex;align-items:center;justify-content:center;padding:1.1rem">
-                <div style="width:100%;height:100%;border-radius:{{ pl.shape }};background:{{ pl.wash }};mask-image:radial-gradient(ellipse at 50% 50%,#000 50%,rgba(0,0,0,0) 82%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 50%,rgba(0,0,0,0) 82%);display:flex;align-items:center;justify-content:center">
-                  <span style="font-family:ui-monospace,Menlo,monospace;font-size:.68rem;letter-spacing:.1em;color:#4A5C4E">{{ pl.slot }}</span>
-                </div>
-              </div>
-            </sc-if>
+                  <div style="height:100%;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1px solid rgba(123,158,135,.15);background:#fff">
+            
+              <div style="aspect-ratio:4/3;background-image:url(illustrations/clinic-pt.webp);background-size:cover;background-position:center"></div>
+            
+            
             <div style="flex:1;padding:1.3rem 1.4rem">
-              <p style="font-size:.93rem;font-weight:500;margin:0 0 .3rem">{{ pl.name }}</p>
-              <p style="font-size:.84rem;color:#64786A;line-height:1.65;margin:0">{{ pl.desc }}</p>
+              <p style="font-size:.93rem;font-weight:500;margin:0 0 .3rem">פתח תקווה · My Clinic</p>
+              <p style="font-size:.84rem;color:#64786A;line-height:1.65;margin:0">ז'בוטינסקי 61, קומה גבוהה עם נוף פתוח</p>
             </div>
           </div>
-        </sc-for>
+                  <div style="height:100%;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1px solid rgba(123,158,135,.15);background:#fff">
+            
+              <div style="aspect-ratio:4/3;background-image:url(illustrations/clinic-ta.webp);background-size:cover;background-position:center"></div>
+            
+            
+            <div style="flex:1;padding:1.3rem 1.4rem">
+              <p style="font-size:.93rem;font-weight:500;margin:0 0 .3rem">תל אביב</p>
+              <p style="font-size:.84rem;color:#64786A;line-height:1.65;margin:0">קליניקה נגישה במרכז העיר</p>
+            </div>
+          </div>
+                  <div style="height:100%;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1px solid rgba(123,158,135,.15);background:#fff">
+            
+              <div style="aspect-ratio:4/3;background-image:url(illustrations/clinic-zoom.webp);background-size:cover;background-position:center"></div>
+            
+            
+            <div style="flex:1;padding:1.3rem 1.4rem">
+              <p style="font-size:.93rem;font-weight:500;margin:0 0 .3rem">בזום</p>
+              <p style="font-size:.84rem;color:#64786A;line-height:1.65;margin:0">מכל מקום, מהנוחות של הבית שלך</p>
+            </div>
+          </div>
       </div>
 
       <div style="margin-top:1.4rem;border-radius:16px;overflow:hidden;border:1px solid rgba(123,158,135,.15);background:#fff">
@@ -257,12 +339,18 @@ input,textarea,button{font-family:'Assistant',sans-serif}
         <h2 style="font-family:'Bellefair',serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:300;line-height:1.35;margin:0">מה נשים כתבו לי על התהליך</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:2.2rem;margin-top:3rem;align-items:start">
-        <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
-          <div style="padding:2rem 0;border-top:1px solid rgba(123,158,135,.2)">
-            <p style="font-family:'Bellefair',serif;font-size:1rem;color:#5A6E5E;line-height:1.9;margin:0 0 1.1rem;text-wrap:pretty">{{ q.text }}</p>
-            <p style="font-size:.82rem;color:#7B9E87;font-weight:500;margin:0">{{ q.author }}</p>
+                  <div style="padding:2rem 0;border-top:1px solid rgba(123,158,135,.2)">
+            <p style="font-family:'Bellefair',serif;font-size:1rem;color:#5A6E5E;line-height:1.9;margin:0 0 1.1rem;text-wrap:pretty">"בכל מפגש הקשבת, תמכת, הצעת ואפילו דמעת בשבילי. זה ריגש אותי מאוד ונתן לי הרגשה שאני לא לבד."</p>
+            <p style="font-size:.82rem;color:#7B9E87;font-weight:500;margin:0">איילת, 52</p>
           </div>
-        </sc-for>
+                  <div style="padding:2rem 0;border-top:1px solid rgba(123,158,135,.2)">
+            <p style="font-family:'Bellefair',serif;font-size:1rem;color:#5A6E5E;line-height:1.9;margin:0 0 1.1rem;text-wrap:pretty">"הגעתי אלייך עם שאלות, עם חששות ועם משקעים לא פשוטים. בזכות הרגישות, החוכמה והסבלנות שלך מצאתי מקום בטוח לעבד, לצמוח ולהירפא."</p>
+            <p style="font-size:.82rem;color:#7B9E87;font-weight:500;margin:0">מיכל, 45</p>
+          </div>
+                  <div style="padding:2rem 0;border-top:1px solid rgba(123,158,135,.2)">
+            <p style="font-family:'Bellefair',serif;font-size:1rem;color:#5A6E5E;line-height:1.9;margin:0 0 1.1rem;text-wrap:pretty">"הגעתי לטיפול בתקופה מורכבת, כשחשתי בלבול וחוסר ביטחון. כבר מהמפגשים הראשונים הרגשתי שמצאתי מקום בטוח שבו אפשר לדבר על הכל, בלי שיפוטיות."</p>
+            <p style="font-size:.82rem;color:#7B9E87;font-weight:500;margin:0">ענת, 39</p>
+          </div>
       </div>
       <img src="illustrations/testimonials.webp" alt="" style="display:block;width:100%;max-width:520px;height:auto;margin:2.6rem auto 0;mix-blend-mode:multiply;mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 18%,#000 60%,rgba(0,0,0,0) 100%),linear-gradient(to right,rgba(0,0,0,0) 0%,#000 20%,#000 74%,rgba(0,0,0,0) 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 18%,#000 60%,rgba(0,0,0,0) 100%),linear-gradient(to right,rgba(0,0,0,0) 0%,#000 20%,#000 74%,rgba(0,0,0,0) 100%);mask-composite:intersect;-webkit-mask-composite:source-in">
     </div>
@@ -289,7 +377,8 @@ input,textarea,button{font-family:'Assistant',sans-serif}
             <p style="font-size:.88rem;color:#5A6E5E;padding:.45rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.65">כלים יישומיים ליצירת שינוי</p>
           </div>
           <p style="font-size:.83rem;color:#64786A;margin:0 0 1.4rem">קבוצה קטנה ואינטימית, שנים עשר מפגשים</p>
-          <span style="display:inline-block;font-size:.86rem;color:#64786A;letter-spacing:.02em">פרטים נוספים בקרוב</span>
+          <span style="display:block;font-size:.86rem;color:#64786A;letter-spacing:.02em;margin-bottom:.5rem">המועד הקרוב טרם נקבע</span>
+          <a href="#waitlist" style="display:inline-block;font-size:.88rem;color:#7B9E87;border-bottom:1px solid #A8C4B0;padding-bottom:2px">רוצה שאעדכן אותך? ←</a>
         </div>
         <div style="background:#fff;border-radius:20px;padding:clamp(1.6rem,3vw,2.3rem);border:1px solid rgba(123,158,135,.15)">
           <span style="display:inline-block;font-size:.72rem;font-weight:500;color:#7B9E87;letter-spacing:.1em;background:#FBF5EF;padding:.3rem .85rem;border-radius:50px;margin-bottom:1.2rem">סדנת יום</span>
@@ -304,7 +393,8 @@ input,textarea,button{font-family:'Assistant',sans-serif}
             <p style="font-size:.88rem;color:#5A6E5E;padding:.45rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.65">כלים לקחת איתך הביתה</p>
           </div>
           <p style="font-size:.83rem;color:#64786A;margin:0 0 1.4rem">סדנת יום, קבוצה קטנה</p>
-          <span style="display:inline-block;font-size:.86rem;color:#64786A;letter-spacing:.02em">פרטים נוספים בקרוב</span>
+          <span style="display:block;font-size:.86rem;color:#64786A;letter-spacing:.02em;margin-bottom:.5rem">המועד הקרוב טרם נקבע</span>
+          <a href="#waitlist" style="display:inline-block;font-size:.88rem;color:#7B9E87;border-bottom:1px solid #A8C4B0;padding-bottom:2px">רוצה שאעדכן אותך? ←</a>
         </div>
 
         <div style="background:#fff;border-radius:20px;padding:clamp(1.6rem,3vw,2.3rem);border:1px solid rgba(123,158,135,.15)">
@@ -320,9 +410,42 @@ input,textarea,button{font-family:'Assistant',sans-serif}
             <p style="font-size:.88rem;color:#5A6E5E;padding:.45rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.65">ליווי קבוצתי עם ממד גוף־נפש</p>
           </div>
           <p style="font-size:.83rem;color:#64786A;margin:0 0 1.4rem">קבוצה קטנה, 30 יום</p>
-          <span style="display:inline-block;font-size:.86rem;color:#64786A;letter-spacing:.02em">פרטים נוספים בקרוב</span>
+          <span style="display:block;font-size:.86rem;color:#64786A;letter-spacing:.02em;margin-bottom:.5rem">המועד הקרוב טרם נקבע</span>
+          <a href="#waitlist" style="display:inline-block;font-size:.88rem;color:#7B9E87;border-bottom:1px solid #A8C4B0;padding-bottom:2px">רוצה שאעדכן אותך? ←</a>
         </div>
       <div style="display:flex;align-items:center;justify-content:center;padding:1rem"><img src="illustrations/workshops.webp" alt="איור בצבעי מים, שני קווים נשיים" style="display:block;width:100%;max-width:360px;height:auto;object-fit:contain;margin:0 auto;transform:scale(1.06); mix-blend-mode: multiply; mask-image: radial-gradient(ellipse at 50% 46%,#000 26%,rgba(0,0,0,.45) 56%,rgba(0,0,0,0) 84%), linear-gradient(to bottom,#000 55%,rgba(0,0,0,.35) 80%,rgba(0,0,0,0) 100%); -webkit-mask-image: radial-gradient(ellipse at 50% 46%,#000 26%,rgba(0,0,0,.45) 56%,rgba(0,0,0,0) 84%), linear-gradient(to bottom,#000 55%,rgba(0,0,0,.35) 80%,rgba(0,0,0,0) 100%); mask-composite: intersect; -webkit-mask-composite: source-in"></div></div>
+      <div id="waitlist" style="max-width:760px;margin:3.4rem auto 0;background:#fff;border-radius:18px;padding:clamp(1.6rem,4vw,2.4rem);border:1px solid rgba(123,158,135,.18);box-shadow:0 14px 44px rgba(44,58,47,.045)">
+        <h3 style="font-family:'Bellefair',serif;font-size:clamp(1.2rem,2.4vw,1.45rem);font-weight:300;line-height:1.45;margin:0 0 .6rem;text-align:center">שנעדכן אותך כשייפתח מחזור חדש?</h3>
+        <p style="font-size:.93rem;color:#5A6E5E;text-align:center;line-height:1.85;margin:0 0 1.6rem">אשלח לך הודעה אחת כשהתאריכים ייסגרו. בלי דיוור, בלי הצפה, ואפשר להסיר בכל רגע.</p>
+        <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+          <input type="hidden" name="form-name" value="waitlist">
+          <p hidden><label>אל תמלאי: <input name="bot-field"></label></p>
+          <fieldset style="border:none;padding:0;margin:0 0 1.3rem">
+            <legend style="font-size:.8rem;color:#64786A;margin-bottom:.7rem;padding:0">מה מעניין אותך? (אפשר לסמן כמה)</legend>
+            <label style="display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:#2C3A2F;padding:.5rem 0;cursor:pointer">
+              <input type="checkbox" name="workshops" value="הדרך שלי מכאן" style="width:17px;height:17px;accent-color:#7B9E87;flex-shrink:0">
+              הדרך שלי מכאן · קבוצה לנשים בפרידה וגירושין</label>
+            <label style="display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:#2C3A2F;padding:.5rem 0;cursor:pointer">
+              <input type="checkbox" name="workshops" value="משלכת לצמיחה" style="width:17px;height:17px;accent-color:#7B9E87;flex-shrink:0">
+              משלכת לצמיחה · סדנת יום</label>
+            <label style="display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:#2C3A2F;padding:.5rem 0;cursor:pointer">
+              <input type="checkbox" name="workshops" value="תזונת הניקוי האדומה" style="width:17px;height:17px;accent-color:#7B9E87;flex-shrink:0">
+              תזונת הניקוי האדומה · תוכנית 30 יום</label>
+          </fieldset>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:.9rem">
+            <div>
+              <label for="wl-name" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">שם</label>
+              <input id="wl-name" type="text" name="name" required placeholder="איך לפנות אלייך" style="width:100%;box-sizing:border-box;direction:rtl;padding:.8rem 1rem;border:1px solid rgba(123,158,135,.25);border-radius:12px;font-size:.93rem;color:#2C3A2F;background:#FAFBFA;outline:none;font-weight:300">
+            </div>
+            <div>
+              <label for="wl-contact" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">טלפון או מייל</label>
+              <input id="wl-contact" type="text" name="contact" required placeholder="לאן לעדכן" style="width:100%;box-sizing:border-box;direction:rtl;padding:.8rem 1rem;border:1px solid rgba(123,158,135,.25);border-radius:12px;font-size:.93rem;color:#2C3A2F;background:#FAFBFA;outline:none;font-weight:300">
+            </div>
+          </div>
+          <button type="submit" style="width:100%;margin-top:1.1rem;background:#7B9E87;color:#fff;border:none;padding:.95rem;border-radius:12px;font-size:.95rem;cursor:pointer;transition:opacity .2s" style-hover="opacity:.87">להצטרפות לרשימה</button>
+        </form>
+      </div>
+
       <div style="max-width:760px;margin:3rem auto 0;background:#F0F6F2;border-radius:16px;padding:1.9rem 2rem;border:1px solid rgba(123,158,135,.15)">
         <p style="font-size:.95rem;font-weight:500;color:#7B9E87;margin:0 0 .6rem">ממ"ד רגשי</p>
         <p style="font-size:.9rem;color:#5A6E5E;line-height:1.85;margin:0">מרחב מוגן לנשות מילואים ולמשפחות שנושאות אובדן. משרד הביטחון והביטוח הלאומי מכירים בזכאות לטיפול פרטני מסובסד עבור אלמנות, הורים, אחים ואחיות, יתומים וארוסות. אם את לא בטוחה מה מגיע לך, <a href="#writeme" style="border-bottom:1px solid #A8C4B0">כתבי לי ונברר יחד</a>.</p>
@@ -528,7 +651,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       <div style="background:#FAFBFA;border:1px solid rgba(123,158,135,.15);border-radius:18px;padding:2.1rem 1.6rem;text-align:center">
         <p style="font-size:.95rem;font-weight:500;margin:0 0 .4rem">ביומן</p>
         <p style="font-size:.85rem;color:#64786A;line-height:1.65;margin:0 0 1.3rem">לבחור מועד שנוח לך</p>
-        <a href="{{ calendly }}" onClick="{{ openCalendly }}" target="_blank" style="display:inline-block;background:#7B9E87;color:#fff;padding:.62rem 1.5rem;border-radius:50px;font-size:.87rem;transition:opacity .2s" style-hover="opacity:.87;color:#fff">לפתיחת היומן</a>
+        <a href="https://calendly.com/meyuhastv/30min" onClick="{{ openCalendly }}" target="_blank" rel="noopener" style="display:inline-block;background:#7B9E87;color:#fff;padding:.62rem 1.5rem;border-radius:50px;font-size:.87rem;transition:opacity .2s" style-hover="opacity:.87;color:#fff">לפתיחת היומן</a>
       </div>
       <div style="background:#FAFBFA;border:1px solid rgba(123,158,135,.15);border-radius:18px;padding:2.1rem 1.6rem;text-align:center">
         <p style="font-size:.95rem;font-weight:500;margin:0 0 .4rem">בוואטסאפ</p>
