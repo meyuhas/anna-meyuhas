@@ -19,6 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": ["ProfessionalService", "MedicalBusiness"], "name": "אנה מיוחס · פסיכותרפיה גופנית־נפשית נשית", "description": "ליווי טיפולי לנשים בתקופות של מעבר — דרך הגוף, הרגש והנוכחות.", "url": "https://anna-meyuhas.com/", "image": "https://anna-meyuhas.com/og-image.jpg", "telephone": "+972-54-8121717", "email": "anna@meyuhas.tv", "inLanguage": "he", "priceRange": "₪₪", "founder": {"@type": "Person", "name": "אנה מיוחס", "jobTitle": "פסיכותרפיסטית גופנית־נפשית"}, "address": {"@type": "PostalAddress", "streetAddress": "ז'בוטינסקי 61", "addressLocality": "פתח תקווה", "addressCountry": "IL"}, "areaServed": [{"@type": "City", "name": "פתח תקווה"}, {"@type": "City", "name": "תל אביב"}, {"@type": "Country", "name": "ישראל"}], "availableLanguage": "he", "knowsAbout": ["פסיכותרפיה גופנית־נפשית", "מיינדפולנס", "התמקדות פוקוסינג", "Somatic Experiencing", "ווייס דיאלוג", "דמיון מודרך", "אימון אישי ועסקי"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "שיחת היכרות"}, "price": "0", "priceCurrency": "ILS"}]}</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -54,12 +55,24 @@ input,textarea,button{font-family:'Assistant',sans-serif}
 @media(max-width:900px){.nav-links{display:none!important}.nav-toggle{display:flex!important}}
 @media(max-width:760px){.art-icon{width:66px!important;height:66px!important}.art-head{padding:1.15rem 1.15rem!important}.map-frame{height:220px!important}}
 @media(max-width:760px){
-  .about-portrait{position:static!important;aspect-ratio:4/3!important;max-height:420px}
-  section{padding-top:56px!important;padding-bottom:56px!important}
+  .about-portrait{position:static!important;aspect-ratio:4/3!important;max-height:340px}
+  section{padding-top:42px!important;padding-bottom:42px!important}
+  /* צמצום גלילה: מרווחי גריד וסטאק */
+  section > div[style*="grid"]{gap:1.4rem!important}
+  section > div[style*="margin-top:3rem"],
+  section > div[style*="margin:3rem"]{margin-top:1.8rem!important}
+  /* איורים דקורטיביים — קטנים יותר בנייד, פחות אוויר סביבם */
+  section img[alt^="איור"]{max-height:300px!important;object-fit:contain}
+  section img[alt=""]{max-height:230px!important}
+  /* בלוקים של תמונה+טקסט שנערמים — לצמצם את הרווח ביניהם */
+  section > div > div[style*="display:flex"][style*="justify-content:center"]{padding:.3rem!important}
 }
 @media(max-width:520px){
   h1{font-size:2rem!important}
-  section{padding-left:1.1rem!important;padding-right:1.1rem!important}
+  section{padding-left:1.1rem!important;padding-right:1.1rem!important;padding-top:36px!important;padding-bottom:36px!important}
+  section > div[style*="grid"]{gap:1.1rem!important}
+  section img[alt^="איור"]{max-height:250px!important}
+  section img[alt=""]{max-height:190px!important}
 }
 </style>
 </helmet>
@@ -196,7 +209,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
 זה מספיק כדי להתחיל.</p>
           </div>
       </div>
-      <p style="max-width:660px;margin:2.6rem auto 0;text-align:center;font-size:1.12rem;color:#5A6E5E;line-height:1.7;font-family:'Bellefair',serif">ולפעמים מגיעות אלי אחרי חרדות, דיכאון או אובדן. <br>גם לזה יש מקום כאן, בזהירות ובקצב שנכון לך.</p>
+      <p style="max-width:660px;margin:2.6rem auto 0;text-align:center;font-size:1.12rem;color:#5A6E5E;line-height:1.7;font-family:'Bellefair',serif">לפעמים מגיעות אלי נשים עם חרדה, דיכאון או אובדן. <br>יש כאן מקום, במרחב טיפולי פתוח ומאפשר, <br>בזהירות ובקצב שנכון לך.</p>
     </div>
   </section>
 
@@ -205,18 +218,18 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       <img class="about-portrait" src="illustrations/about.webp" alt="אנה מיוחס, פורטרט מאויר בצבעי מים" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;mix-blend-mode:multiply;mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 5%,#000 14%,#000 58%,rgba(0,0,0,.45) 84%,rgba(0,0,0,0) 100%),linear-gradient(to left,#000 74%,rgba(0,0,0,0) 100%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 5%,#000 14%,#000 58%,rgba(0,0,0,.45) 84%,rgba(0,0,0,0) 100%),linear-gradient(to left,#000 74%,rgba(0,0,0,0) 100%);mask-composite:intersect;-webkit-mask-composite:source-in;position:sticky;top:90px">
       <div>
         <h2 style="font-family:'Bellefair',serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:300;line-height:1.35;margin:0 0 1.4rem">נעים מאוד, שמי אנה</h2>
-        <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1.1rem;text-wrap:pretty">הקמתי וניהלתי במשך שנים חברת הפקת סרטים ופרסומות עם בן זוגי, <br>ואז ליוויתי עסקים ובעלות עסקים כמאמנת. <br>אני מכירה מקרוב את הימים שמתחילים מוקדם ונגמרים מאוחר, <br>את האחריות שלא נגמרת<br>ואת ההרגשה שאם אני לא שם - אז אף אחד לא יהיה.<br>אני נשואה מעל 2 עשורים + 2 ילדים בוגרים, <br>היו כמובן אתגרים בקשר וצלחנו אותם.</p>
+        <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1.1rem;text-wrap:pretty">הקמתי וניהלתי במשך שנים חברת הפקת סרטים ופרסומות עם בן זוגי, <br>בהמשך ליוויתי עסקים ובעלות עסקים כמאמנת. <br>אני מכירה מקרוב את הימים שמתחילים מוקדם ונגמרים מאוחר, <br>את האחריות שלא נגמרת<br>ואת ההרגשה שאם אני לא שם - אז אף אחד לא יהיה.<br>אני נשואה מעל 2 עשורים + 2 ילדים בוגרים, <br>היו כמובן אתגרים בקשר וצלחנו אותם.</p>
         <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1.1rem;text-wrap:pretty">במקביל נשאתי בגוף דברים שלא ידעתי לקרוא להם בשם, <br>במשך שנים ארוכות. ההחלטה לעצור ולהסתכל פנימה <br>הייתה אחת הקשות שקיבלתי. <br><strong style="color: rgb(44, 58, 47); font-weight: 400;">אני יודעת כמה זה מפחיד ואני יודעת גם מה נמצא מהצד השני.</strong></p>
-        <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1.1rem;text-wrap:pretty">יצרתי את השינוי הזה בעצמי. <br>בתזונה, בגוף, ביחסים ובעיקר ביחס שלי לעצמי. <br>היום אני מלווה נשים בדיוק במקום שממנו הגעתי, <br>עם הכלים שלא היו לי אז.</p>
+        <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1.1rem;text-wrap:pretty">עשיתי שינוי משמעותי בתזונה. <br>בגוף, ביחסים ובעיקר ביחס שלי לעצמי. <br>היום אני מלווה נשים בדיוק במקום שממנו הגעתי, <br>עם הכלים שלא היו לי אז.</p>
         <p style="font-family:'Bellefair',serif;font-size:1.15rem;color:#7B9E87;line-height:1.8;margin:0">אין שיטה אחת. יש את הדרך שלך.<br>ושם אנו נפגשות, אנה מיוחס.</p>
         <div style="margin-top:2.6rem;border-top:1px solid rgba(123,158,135,.18);padding-top:2rem">
           <p style="font-size:.76rem;font-weight:500;color:#7B9E87;letter-spacing:.14em;margin:0 0 1.2rem">רקע מקצועי</p>
           <div style="display:flex;flex-direction:column">
                           <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">פסיכותרפיה גופנית־נפשית מבוססת מיינדפולנס, אוניברסיטת חיפה</p>
-                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">התמקדות Focusing, לימודים והנחיה</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">התמקדות — פוקוסינג</p>
                           <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">אימון עסקי ואישי, ליווי עסקים ובעלי עסקים</p>
-                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">הכשרת מורי יוגה, לימודי בודהיזם ושש עשרה המעלות</p>
-                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">תוכנית FDCW לפיתוח חמלה וחכמה</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">הכשרת מורי יוגה, לימודי בודהיזם</p>
+                          <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">מנחת תוכנית 16 המעלות, מטעם ארגון FDCW לפיתוח חמלה וחוכמה</p>
                           <p style="font-size:.87rem;color:#64786A;padding:.5rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">ניסיון טיפולי במרכז רקמן, עמותת ניצן וקליניקה פרטית</p>
           </div>
         </div>
@@ -236,12 +249,12 @@ input,textarea,button{font-family:'Assistant',sans-serif}
           <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">הקשבה לתחושה הפנימית לפני המילים</p>
         </div>
               <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
-          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-2.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-3.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
           <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">גוף</p>
-          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">עבודה סומטית עם מה שהגוף יודע ומחזיק</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">עבודה סומטית עם מה שהגוף כבר יודע ואוצר · SE</p>
         </div>
               <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
-          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-3.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
+          <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-2.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
           <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">מיינדפולנס</p>
           <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">נוכחות קשובה ולא שיפוטית ברגע הזה</p>
         </div>
@@ -267,14 +280,13 @@ input,textarea,button{font-family:'Assistant',sans-serif}
         </div>
               <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
           <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-8.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
-          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">הכלי לשינוי</p>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">השינוי כמנוף</p>
           <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">תרגול שמלווה אותך גם בין המפגשים</p>
         </div>
               <div style="text-align:center;padding:0 .4rem;transition:transform .25s" style-hover="transform:translateY(-3px)">
           <div style="width:132px;height:132px;margin:0 auto .6rem;background-image:url(illustrations/tool-9.webp);background-size:contain;background-position:center;background-repeat:no-repeat;transform:scale(1.35);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)"></div>
-          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">כלי הביחד</p>
-          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">הקשר בין מטפלת למטופלת, 
- מה שנוצר בין שתינו בחדר</p>
+          <p style="font-family:'Bellefair',serif;font-size:1.1rem;font-weight:400;color:#2C3A2F;margin:0 0 .4rem">יחד</p>
+          <p style="font-size:.83rem;color:#64786A;line-height:1.7;margin:0">הקשר הטיפולי בין המטפלת למטופלת</p>
         </div>
     </div>
 
@@ -282,8 +294,8 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       <img src="illustrations/palette.webp" alt="איור בצבעי מים, גוונים נפגשים" style="width: 341px; max-width: 460px; height: 343px; justify-self: center; aspect-ratio: 1/1; object-fit: contain; transform: scale(1.12); mix-blend-mode: multiply; mask-image: radial-gradient(ellipse at 50% 50%,#000 40%,rgba(0,0,0,.55) 66%,rgba(0,0,0,0) 88%); -webkit-mask-image: radial-gradient(ellipse at 50% 50%,#000 40%,rgba(0,0,0,.55) 66%,rgba(0,0,0,0) 88%)">
       <div>
         
-        <p style="font-size:.76rem;font-weight:500;color:#7B9E87;letter-spacing:.14em;margin:0 0 1rem">איך הכל מתחבר</p><p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem;text-wrap:pretty">אני משלבת. אף גוון לא עומד לבד. במפגש אחד עולה הקשבה לגוף, <br>בשני מצטרפת נוכחות ובשלישי נכנס כלי אימוני בעולמות העשייה.</p>
-        <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0;text-wrap:pretty">לא תערובת קבועה מראש. אלא הרמוניה של גוונים מתוך הכלים השונים לטובתך. נרקמת תמונה בין הגוונים, בדיוק שנכון לך.</p>
+        <p style="font-size:.76rem;font-weight:500;color:#7B9E87;letter-spacing:.14em;margin:0 0 1rem">איך הכל מתחבר</p><p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem;text-wrap:pretty">כלים ושיטות משתלבים יחד לתמונה אחת. <br>במפגש אחד עולה לעיתים הקשבה לגוף, נוכחות וגם כלי אימוני מעשי, <br>לפי הצורך והדיוק, לפי ההתאמה לרגע ולמטופלת.</p>
+        <p style="font-size:1rem;color:#5A6E5E;line-height:1.95;margin:0;text-wrap:pretty">לא תבנית קבועה מראש, אלא הרמוניה של גוונים במשיכת מכחול מתוך פלטת הצבעים — בדיוק שנכון לך.</p>
       </div>
     </div>
   </section>
@@ -410,7 +422,8 @@ input,textarea,button{font-family:'Assistant',sans-serif}
             <p style="font-size:.88rem;color:#5A6E5E;padding:.45rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.65">חיבור לאותות הגוף והבנת הצרכים שלך</p>
             <p style="font-size:.88rem;color:#5A6E5E;padding:.45rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.65">ליווי קבוצתי עם ממד גוף־נפש</p>
           </div>
-          <p style="font-size:.83rem;color:#64786A;margin:0 0 1.4rem">קבוצה קטנה, 30 יום</p>
+          <p style="font-size:.83rem;color:#64786A;margin:0 0 .45rem">קבוצה קטנה, 30 יום</p>
+          <p style="font-size:.83rem;color:#64786A;margin:0 0 1.4rem;line-height:1.7">בהנחיית הילה אפללו · נטורופתית, מטפלת, מרצה וסופרת</p>
           <span style="display:block;font-size:.86rem;color:#64786A;letter-spacing:.02em;margin-bottom:.5rem">המועד הקרוב טרם נקבע</span>
           <a href="#waitlist" style="display:inline-block;font-size:.88rem;color:#7B9E87;border-bottom:1px solid #A8C4B0;padding-bottom:2px">רוצה שאעדכן אותך? ←</a>
         </div>
@@ -487,12 +500,13 @@ input,textarea,button{font-family:'Assistant',sans-serif}
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">במקום שבו היית אמורה להיות ילדה מוגנת, למדת שיעור כואב. <strong style="color:#2C3A2F;font-weight:500">אם אני לא אדאג לעצמי, אף אחד לא ידאג לי.</strong></p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">אז לבשת שריון.</p>
             <h4 style="font-family:'Bellefair',serif;font-size:1.06rem;font-weight:400;color:#2C3A2F;margin:1.8rem 0 .7rem">מה השריון גובה</h4>
-            <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">הוא עזר לך לשרוד ולהגיע רחוק. אבל בחיים הבוגרים הוא הפך לכלא שקוף.</p>
+            <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">הוא עזר לך לשרוד ולהגיע רחוק. אבל בחיים הבוגרים הוא ניתק אותך מחלקים פנימיים חשובים, והפך לכלא שקוף.</p>
             <div style="display:flex;flex-direction:column;margin:1rem 0">
               <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">בדידות עמוקה, גם כשאת מוקפת באנשים</p>
               <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">תשישות שלא עוברת, כי הרעיון לבקש עזרה מעורר חרדה</p>
               <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">קושי להישען, גם על מי שקרוב</p>
               <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">שמירה על רגל אחת בחוץ, מחכה לאכזבה</p>
+              <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">ולעיתים גם חרדה או דיכאון, כשהמאמץ להחזיק לבד נמשך שנים</p>
             </div>
             <h4 style="font-family:'Bellefair',serif;font-size:1.06rem;font-weight:400;color:#2C3A2F;margin:1.8rem 0 .7rem">למה דווקא דרך הגוף</h4>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">מי שלמדה לשרוד לבד מחזיקה את המתח בגוף. זה מתבטא בכיווץ בכתפיים, בצוואר, בבטן. בנשימה שטחית. בעייפות שלא עוברת אחרי שינה.</p>
@@ -510,7 +524,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
           <img class="art-icon" src="illustrations/icon-2.webp" alt="" style="width:104px;height:104px;flex-shrink:0;object-fit:contain;transform:scale(1.5);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
           <span style="flex:1;text-align:right">
             <span style="display:block;font-size:.72rem;color:#7B9E87;letter-spacing:.1em;margin-bottom:.4rem">על ניהול וקריירה</span>
-            <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">זה תמיד נראה יותר מורכב ממה שזה באמת</span>
+            <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">זה הרבה יותר מורכב ממה שזה נראה</span>
             <span style="display:block;font-size:.87rem;color:#64786A;line-height:1.75">הילדה שלמדה להסתדר לבד והאישה שמנהלת היום הכל.</span>
           </span>
           <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem">{{ sign1 }}</span>
@@ -566,7 +580,11 @@ input,textarea,button{font-family:'Assistant',sans-serif}
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">הגוף יודע דברים שהראש עוד מעכל. הבטן שמתכווצת מול אפשרות מסוימת. הנשימה שנעצרת כשאת אומרת כן. הקלות שמציפה כשאת מדמיינת לא.</p>
             <p style="font-family:'Bellefair',serif;font-size:1.06rem;color:#5A6E5E;line-height:1.85;padding:1.2rem 1.5rem;border-right:2px solid #A8C4B0;background:#F0F6F2;border-radius:0 10px 10px 0;margin:1.5rem 0">אלה לא חוסר רציונליות. אלה מידע.</p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">בטיפול עוצרים רגע. וכשיש שקט, ההקשבה לאינטואיציה עולה ומתוכה מגיעה החלטה מדויקת יותר. לא במקום החשיבה אלא לצידה.</p>
-            <h4 style="font-family:'Bellefair',serif;font-size:1.06rem;font-weight:400;color:#2C3A2F;margin:1.8rem 0 .7rem">כמה דברים שאפשר לנסות</h4>
+                          <h4 style="font-family:'Bellefair',serif;font-size:1.06rem;font-weight:400;color:#2C3A2F;margin:1.8rem 0 .7rem">כשאין בהירות</h4>
+              <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">לפעמים אין החלטה אחת שמחכה. יש ערפל. לא ברור מה בדיוק השאלה, לא ברור מה מפריע, ובטח לא ברור מה נכון.</p>
+              <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">חוסר הבהירות הזה מרגיש כמו כישלון, אבל הוא לא. לרוב הוא סימן שמשהו בפנים עוד לא קיבל מילים, ושהראש מנסה להחליט לפני שהספיק להקשיב.</p>
+              <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">במצב כזה המשימה הראשונה היא לא להחליט. היא <strong style="color:#2C3A2F;font-weight:500">לדייק את השאלה.</strong> כשהשאלה מתבהרת, התשובה כבר נמצאת שם לרוב.</p>
+<h4 style="font-family:'Bellefair',serif;font-size:1.06rem;font-weight:400;color:#2C3A2F;margin:1.8rem 0 .7rem">כמה דברים שאפשר לנסות</h4>
             <div style="display:flex;flex-direction:column;margin:1rem 0">
               <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">לעצור לפני שעונים. אפילו לומר "אחזור אלייך בהמשך היום"</p>
               <p style="font-size:.92rem;color:#5A6E5E;padding:.42rem 0;border-bottom:1px solid rgba(123,158,135,.15);margin:0;line-height:1.7">לשאול את הגוף ולא רק את הראש. לדמיין את ההחלטה ולשים לב מה קורה</p>
@@ -765,22 +783,22 @@ class Component extends DCLogic {
       ],
       creds: [
         'פסיכותרפיה גופנית־נפשית מבוססת מיינדפולנס, אוניברסיטת חיפה',
-        'התמקדות Focusing, לימודים והנחיה',
+        'התמקדות — פוקוסינג',
         'אימון עסקי ואישי, ליווי עסקים ובעלי עסקים',
-        'הכשרת מורי יוגה, לימודי בודהיזם ושש עשרה המעלות',
-        'תוכנית FDCW לפיתוח חמלה וחכמה',
+        'הכשרת מורי יוגה, לימודי בודהיזם',
+        'מנחת תוכנית 16 המעלות, מטעם ארגון FDCW לפיתוח חמלה וחוכמה',
         'ניסיון טיפולי במרכז רקמן, עמותת ניצן וקליניקה פרטית'
       ],
       modalities: [
         { name: 'התמקדות', desc: 'הקשבה לתחושה הפנימית לפני המילים', color: '#A8C4B0', shape: '63% 37% 54% 46% / 55% 48% 52% 45%' },
-        { name: 'גוף', desc: 'עבודה סומטית עם מה שהגוף יודע ומחזיק', color: '#8AAFC2', shape: '41% 59% 33% 67% / 62% 38% 62% 38%' },
+        { name: 'גוף', desc: 'עבודה סומטית עם מה שהגוף כבר יודע ואוצר · SE', color: '#8AAFC2', shape: '41% 59% 33% 67% / 62% 38% 62% 38%' },
         { name: 'מיינדפולנס', desc: 'נוכחות קשובה ולא שיפוטית ברגע הזה', color: '#E8C4A8', shape: '70% 30% 46% 54% / 30% 60% 40% 70%' },
         { name: 'רוח', desc: 'מרחב להקשבה עמוקה יותר, למי שיש לה קריאה', color: '#C4B5D4', shape: '38% 62% 63% 37% / 41% 44% 56% 59%' },
         { name: 'אימון עסקי ואישי', desc: 'שפת המעשה והעשייה', color: '#D4C4A8', shape: '60% 40% 30% 70% / 60% 30% 70% 40%' },
         { name: 'ווייס דיאלוג', desc: 'היכרות עם הקולות השונים שחיים בתוכך', color: '#B0C4A8', shape: '27% 73% 45% 55% / 60% 51% 49% 40%' },
         { name: 'דמיון מודרך', desc: 'דרך חווייתית להגיע למה שמתחת לפני השטח', color: '#A8C4C4', shape: '55% 45% 61% 39% / 43% 62% 38% 57%' },
-        { name: 'הכלי לשינוי', desc: 'תרגול שמלווה אותך גם בין המפגשים', color: '#D4B0B0', shape: '47% 53% 38% 62% / 66% 39% 61% 34%' },
-        { name: 'כלי הביחד', desc: 'הקשר בין מטפלת למטופלת, \n מה שנוצר בין שתינו בחדר', color: '#C4CDB4', shape: '52% 48% 57% 43% / 38% 63% 37% 62%' }
+        { name: 'השינוי כמנוף', desc: 'תרגול שמלווה אותך גם בין המפגשים', color: '#D4B0B0', shape: '47% 53% 38% 62% / 66% 39% 61% 34%' },
+        { name: 'יחד', desc: 'הקשר הטיפולי בין המטפלת למטופלת', color: '#C4CDB4', shape: '52% 48% 57% 43% / 38% 63% 37% 62%' }
       ].map((m, i) => Object.assign({}, m, {
         img: 'illustrations/tool-' + (i + 1) + '.webp',
         scale: i === 5 ? 1.55 : 1.35,
