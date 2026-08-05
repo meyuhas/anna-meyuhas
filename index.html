@@ -55,6 +55,13 @@ input,textarea,button{font-family:'Assistant',sans-serif}
 @media(max-width:900px){.nav-links{display:none!important}.nav-toggle{display:flex!important}}
 @media(max-width:760px){.art-icon{width:66px!important;height:66px!important}.art-head{padding:1.15rem 1.15rem!important}.map-frame{height:220px!important}}
 @media(max-width:760px){
+  /* הירו: ביטול הגבהים הכפויים שהצטברו בעת ההיערמות */
+  #top{min-height:auto!important;padding-top:66px!important;padding-bottom:0!important}
+  #top > div:first-child{justify-content:flex-start!important;padding:2rem 1.4rem .4rem!important}
+  #top > div:last-child{min-height:auto!important;padding:0 1.2rem 1rem!important}
+  #top h1{margin:0 0 1.1rem!important}
+  #top > div:first-child > p{margin-bottom:1.1rem!important}
+  #top img{max-height:42vh!important}
   .about-portrait{position:static!important;aspect-ratio:4/3!important;max-height:340px}
   section{padding-top:42px!important;padding-bottom:42px!important}
   /* צמצום גלילה: מרווחי גריד וסטאק */
@@ -68,6 +75,8 @@ input,textarea,button{font-family:'Assistant',sans-serif}
   section > div > div[style*="display:flex"][style*="justify-content:center"]{padding:.3rem!important}
 }
 @media(max-width:520px){
+  #top > div:first-child{padding:1.5rem 1.1rem .3rem!important}
+  #top img{max-height:36vh!important}
   h1{font-size:2rem!important}
   section{padding-left:1.1rem!important;padding-right:1.1rem!important;padding-top:36px!important;padding-bottom:36px!important}
   section > div[style*="grid"]{gap:1.1rem!important}
