@@ -52,6 +52,18 @@ a:hover{color:#5A6E5E}
 input,textarea,button{font-family:'Assistant',sans-serif}
 ::selection{background:#F0F6F2}
 .nav-toggle{display:none}
+/* === נגישות: תקן ישראלי 5568 / WCAG 2.0 AA === */
+:focus-visible{outline:3px solid #2C3A2F;outline-offset:3px;border-radius:3px}
+.skip-link{position:absolute;right:-9999px;top:0;z-index:200;background:#2C3A2F;color:#fff;padding:.8rem 1.4rem;border-radius:0 0 10px 0;font-size:.95rem}
+.skip-link:focus{right:0;color:#fff}
+a,button{touch-action:manipulation}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+@media(prefers-contrast:more){
+  body{color:#1C2620}
+  a{text-decoration:underline}
+}
 @media(max-width:900px){.nav-links{display:none!important}.nav-toggle{display:flex!important}}
 @media(max-width:760px){.art-icon{width:66px!important;height:66px!important}.art-head{padding:1.15rem 1.15rem!important}.map-frame{height:220px!important}}
 @media(max-width:760px){
@@ -87,7 +99,9 @@ input,textarea,button{font-family:'Assistant',sans-serif}
 </helmet>
 <div dir="rtl" style="font-family:'Assistant',sans-serif;background:#FAFBFA;color:#2C3A2F;line-height:1.8;font-weight:300;overflow-x:hidden">
 
-  <nav style="position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(250,251,250,.92);backdrop-filter:blur(14px);borderBottom:1px solid rgba(123,158,135,.15);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0 clamp(1.2rem,4vw,4rem);height:66px">
+  <a class="skip-link" href="#top">דילוג לתוכן הראשי</a>
+
+  <nav aria-label="ניווט ראשי" style="position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(250,251,250,.92);backdrop-filter:blur(14px);borderBottom:1px solid rgba(123,158,135,.15);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0 clamp(1.2rem,4vw,4rem);height:66px">
     <a href="#top" style="font-family:'Bellefair',serif;font-size:1.08rem;font-weight:400;color:#2C3A2F;letter-spacing:.01em">אנה מיוחס</a>
     <div class="nav-links" style="display:flex;gap:1.35rem;align-items:center;flex-wrap:nowrap">
       <a href="#invited" style="font-size:.82rem;white-space:nowrap;color:#64786A;transition:color .2s" style-hover="color:#7B9E87">את מוזמנת</a>
@@ -99,7 +113,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
     </div>
     <div style="display:flex;align-items:center;gap:1rem">
       <a href="#writeme" style="font-size:.86rem;color:#7B9E87;font-weight:500;border-bottom:1px solid #A8C4B0;padding-bottom:2px">לכתוב לי</a>
-      <button class="nav-toggle" onClick="{{ toggleMenu }}" aria-label="תפריט" style="width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:0">
+      <button class="nav-toggle" onClick="{{ toggleMenu }}" aria-label="תפריט" aria-expanded="{{ menuOpen }}" aria-controls="mobile-menu" style="width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:0">
         <span style="display:block;width:20px;height:1px;background:#5A6E5E"></span>
         <span style="display:block;width:20px;height:1px;background:#5A6E5E"></span>
         <span style="display:block;width:20px;height:1px;background:#5A6E5E"></span>
@@ -107,7 +121,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
     </div>
   </nav>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeMenu }}" style="position:fixed;top:66px;right:0;left:0;z-index:99;background:rgba(250,251,250,.98);backdrop-filter:blur(14px);border-bottom:1px solid rgba(123,158,135,.15);display:flex;flex-direction:column;padding:.6rem 1.2rem 1.2rem">
+    <div id="mobile-menu" onClick="{{ closeMenu }}" style="position:fixed;top:66px;right:0;left:0;z-index:99;background:rgba(250,251,250,.98);backdrop-filter:blur(14px);border-bottom:1px solid rgba(123,158,135,.15);display:flex;flex-direction:column;padding:.6rem 1.2rem 1.2rem">
       <a href="#invited" style="padding:.85rem 0;font-size:1rem;color:#5A6E5E;border-bottom:1px solid rgba(123,158,135,.12)">את מוזמנת</a>
       <a href="#about" style="padding:.85rem 0;font-size:1rem;color:#5A6E5E;border-bottom:1px solid rgba(123,158,135,.12)">קצת עליי</a>
       <a href="#palette" style="padding:.85rem 0;font-size:1rem;color:#5A6E5E;border-bottom:1px solid rgba(123,158,135,.12)">הדרך</a>
@@ -117,6 +131,7 @@ input,textarea,button{font-family:'Assistant',sans-serif}
     </div>
   </sc-if>
 
+  <main id="main">
   <section id="top" data-screen-label="הירו" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));min-height:92vh;padding-top:66px">
     <div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,7vw,6rem) clamp(1.4rem,4vw,4rem)">
       <p style="font-size:1rem;font-weight:500;color:#7B9E87;letter-spacing:.14em;margin:0 0 2rem">פסיכותרפיה גופנית־נפשית נשית</p>
@@ -145,17 +160,17 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       <sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
       <div>
           <div style="margin-bottom:1rem">
-            <label style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">מה שעל ליבך</label><textarea ref="{{ msgRef }}" placeholder="אפשר להתחיל בכל מקום" style="width: 100%; box-sizing: border-box; direction: rtl; padding: .8rem 1rem; border: 1px solid rgba(123,158,135,.25); border-radius: 12px; font-size: .93rem; color: #2C3A2F; background: #FAFBFA; outline: none; font-weight: 300; min-height: 130px; resize: vertical; line-height: 1.8; height: 129px"></textarea>
+            <label for="cf-msg" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">מה שעל ליבך</label><textarea id="cf-msg" ref="{{ msgRef }}" placeholder="אפשר להתחיל בכל מקום" style="width: 100%; box-sizing: border-box; direction: rtl; padding: .8rem 1rem; border: 1px solid rgba(123,158,135,.25); border-radius: 12px; font-size: .93rem; color: #2C3A2F; background: #FAFBFA; outline: none; font-weight: 300; min-height: 130px; resize: vertical; line-height: 1.8; height: 129px"></textarea>
 
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:.9rem">
             <div>
-              <label style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">שם</label>
-              <input type="text" ref="{{ nameRef }}" placeholder="איך לפנות אלייך" style="width: 100%; box-sizing: border-box; direction: rtl; padding: .8rem 1rem; border: 1px solid rgba(123,158,135,.25); border-radius: 12px; font-size: .93rem; color: #2C3A2F; background: #FAFBFA; outline: none; font-weight: 300">
+              <label for="cf-name" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">שם</label>
+              <input type="text" id="cf-name" ref="{{ nameRef }}" placeholder="איך לפנות אלייך" style="width: 100%; box-sizing: border-box; direction: rtl; padding: .8rem 1rem; border: 1px solid rgba(123,158,135,.25); border-radius: 12px; font-size: .93rem; color: #2C3A2F; background: #FAFBFA; outline: none; font-weight: 300">
             </div>
             <div>
 
-              <label style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">טלפון או מייל</label><input type="text" ref="{{ contactRef }}" placeholder="כדי שאוכל לחזור אלייך" style="width: 100%; box-sizing: border-box; direction: rtl; padding: .8rem 1rem; border: 1px solid rgba(123,158,135,.25); border-radius: 12px; font-size: .93rem; color: #2C3A2F; background: #FAFBFA; outline: none; font-weight: 300">
+              <label for="cf-contact" style="display:block;font-size:.8rem;color:#64786A;margin-bottom:.4rem">טלפון או מייל</label><input type="text" id="cf-contact" ref="{{ contactRef }}" placeholder="כדי שאוכל לחזור אלייך" style="width: 100%; box-sizing: border-box; direction: rtl; padding: .8rem 1rem; border: 1px solid rgba(123,158,135,.25); border-radius: 12px; font-size: .93rem; color: #2C3A2F; background: #FAFBFA; outline: none; font-weight: 300">
             </div>
           </div>
           <button onClick="{{ submit }}" disabled="{{ sending }}" style="width:100%;margin-top:1.1rem;background:#2C3A2F;color:#fff;border:none;padding:.95rem;border-radius:12px;font-size:.95rem;cursor:pointer;transition:opacity .2s" style-hover="opacity:.86">{{ submitLabel }}</button>
@@ -488,17 +503,17 @@ input,textarea,button{font-family:'Assistant',sans-serif}
     <div style="max-width:780px;margin:3rem auto 0;display:flex;flex-direction:column;gap:1rem">
 
       <div style="background:#fff;border:1px solid rgba(123,158,135,.15);border-radius:16px;overflow:hidden">
-        <button class="art-head" ref="{{ head0 }}" onClick="{{ toggle0 }}" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+        <button class="art-head" ref="{{ head0 }}" onClick="{{ toggle0 }}" aria-expanded="{{ open0 }}" aria-controls="art-body-0" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
           <img class="art-icon" src="illustrations/icon-1.webp" alt="" style="width:104px;height:104px;flex-shrink:0;object-fit:contain;transform:scale(1.5);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
           <span style="flex:1;text-align:right">
             <span style="display:block;font-size:.72rem;color:#7B9E87;letter-spacing:.1em;margin-bottom:.4rem">על עצמאות ושחיקה</span>
             <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">השריון השקוף</span>
             <span style="display:block;font-size:.87rem;color:#64786A;line-height:1.75">העצמאות שהצילה אותך פעם ומה קורה כשהיא מתחילה להכביד.</span>
           </span>
-          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem">{{ sign0 }}</span>
+          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem" aria-hidden="true">{{ sign0 }}</span>
         </button>
         <div style="display:grid;grid-template-rows:{{ rows0 }};transition:grid-template-rows 1.4s cubic-bezier(.25,.6,.2,1)">
-          <div style="overflow:hidden;min-height:0">
+          <div id="art-body-0" role="region" style="overflow:hidden;min-height:0">
           <div style="padding:1.6rem 1.8rem 1.9rem;border-top:1px solid rgba(123,158,135,.15);text-align:right;opacity:{{ op0 }};transition:opacity 1s cubic-bezier(.4,0,.2,1) .35s">
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">יש נשים ששורדות מאז שהן זוכרות את עצמן.</p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">מבחוץ נראה שהכל מתנהל. קריירה, בית, ילדים ומי שצריך עזרה יודע לאן לפנות. כשמשהו משתבש, את הראשונה שמתייצבת. הסביבה מעריצה את החוזק ואת העובדה שאת מסתדרת.</p>
@@ -529,17 +544,17 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       </div>
 
       <div style="background:#fff;border:1px solid rgba(123,158,135,.15);border-radius:16px;overflow:hidden">
-        <button class="art-head" ref="{{ head1 }}" onClick="{{ toggle1 }}" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+        <button class="art-head" ref="{{ head1 }}" onClick="{{ toggle1 }}" aria-expanded="{{ open1 }}" aria-controls="art-body-1" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
           <img class="art-icon" src="illustrations/icon-2.webp" alt="" style="width:104px;height:104px;flex-shrink:0;object-fit:contain;transform:scale(1.5);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
           <span style="flex:1;text-align:right">
             <span style="display:block;font-size:.72rem;color:#7B9E87;letter-spacing:.1em;margin-bottom:.4rem">על ניהול וקריירה</span>
             <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">זה הרבה יותר מורכב ממה שזה נראה</span>
             <span style="display:block;font-size:.87rem;color:#64786A;line-height:1.75">הילדה שלמדה להסתדר לבד והאישה שמנהלת היום הכל.</span>
           </span>
-          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem">{{ sign1 }}</span>
+          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem" aria-hidden="true">{{ sign1 }}</span>
         </button>
         <div style="display:grid;grid-template-rows:{{ rows1 }};transition:grid-template-rows 1.4s cubic-bezier(.25,.6,.2,1)">
-          <div style="overflow:hidden;min-height:0">
+          <div id="art-body-1" role="region" style="overflow:hidden;min-height:0">
           <div style="padding:1.6rem 1.8rem 1.9rem;border-top:1px solid rgba(123,158,135,.15);text-align:right;opacity:{{ op1 }};transition:opacity 1s cubic-bezier(.4,0,.2,1) .35s">
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">ילדה שגדלה לבית שבו ההורים היו עסוקים מאוד, או שלא יכלו לתת את תשומת הלב שהיא הייתה זקוקה לה, למדה להעסיק את עצמה.</p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">היא מצאה דרכים יצירתיות לא לחוש את החרדה שבלבדות ולימדה את המערכת הפנימית שלה שאפשר להסתדר לבד. מגיל צעיר היא הפכה לעצמאית.</p>
@@ -567,17 +582,17 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       </div>
 
       <div style="background:#fff;border:1px solid rgba(123,158,135,.15);border-radius:16px;overflow:hidden">
-        <button class="art-head" ref="{{ head2 }}" onClick="{{ toggle2 }}" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+        <button class="art-head" ref="{{ head2 }}" onClick="{{ toggle2 }}" aria-expanded="{{ open2 }}" aria-controls="art-body-2" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
           <img class="art-icon" src="illustrations/icon-3.webp" alt="" style="width:104px;height:104px;flex-shrink:0;object-fit:contain;transform:scale(1.5);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
           <span style="flex:1;text-align:right">
             <span style="display:block;font-size:.72rem;color:#7B9E87;letter-spacing:.1em;margin-bottom:.4rem">על החלטות</span>
             <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">איך מקבלות החלטות כשהכל מרגיש לא בטוח</span>
             <span style="display:block;font-size:.87rem;color:#64786A;line-height:1.75">כשהראש דוחס תשובה מהר מדי ומה קורה כשעוצרים רגע.</span>
           </span>
-          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem">{{ sign2 }}</span>
+          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem" aria-hidden="true">{{ sign2 }}</span>
         </button>
         <div style="display:grid;grid-template-rows:{{ rows2 }};transition:grid-template-rows 1.4s cubic-bezier(.25,.6,.2,1)">
-          <div style="overflow:hidden;min-height:0">
+          <div id="art-body-2" role="region" style="overflow:hidden;min-height:0">
           <div style="padding:1.6rem 1.8rem 1.9rem;border-top:1px solid rgba(123,158,135,.15);text-align:right;opacity:{{ op2 }};transition:opacity 1s cubic-bezier(.4,0,.2,1) .35s">
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">יש החלטה שמחכה לך. לקוח שמבקש הצעת מחיר, פרויקט שצריך לענות עליו, או שאלה גדולה יותר על כיוון.</p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">את יודעת שצריך להחליט. הראש רץ בלופים, שוקל, מנתח, בודק שוב. עוד מידע, עוד התייעצות, עוד לילה שהמחשבות לא מרפות.</p>
@@ -610,17 +625,17 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       </div>
 
       <div style="background:#fff;border:1px solid rgba(123,158,135,.15);border-radius:16px;overflow:hidden">
-        <button class="art-head" ref="{{ head3 }}" onClick="{{ toggle3 }}" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+        <button class="art-head" ref="{{ head3 }}" onClick="{{ toggle3 }}" aria-expanded="{{ open3 }}" aria-controls="art-body-3" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
           <img class="art-icon" src="illustrations/icon-4.webp" alt="" style="width:104px;height:104px;flex-shrink:0;object-fit:contain;transform:scale(1.5);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
           <span style="flex:1;text-align:right">
             <span style="display:block;font-size:.72rem;color:#7B9E87;letter-spacing:.1em;margin-bottom:.4rem">על הטיפול</span>
             <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">המקום שבו מותר לך פשוט להיות</span>
             <span style="display:block;font-size:.87rem;color:#64786A;line-height:1.75">על הריפוי שקורה כשלא צריך להיות חזקה, מדויקת או מוכנה.</span>
           </span>
-          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem">{{ sign3 }}</span>
+          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem" aria-hidden="true">{{ sign3 }}</span>
         </button>
         <div style="display:grid;grid-template-rows:{{ rows3 }};transition:grid-template-rows 1.4s cubic-bezier(.25,.6,.2,1)">
-          <div style="overflow:hidden;min-height:0">
+          <div id="art-body-3" role="region" style="overflow:hidden;min-height:0">
           <div style="padding:1.6rem 1.8rem 1.9rem;border-top:1px solid rgba(123,158,135,.15);text-align:right;opacity:{{ op3 }};transition:opacity 1s cubic-bezier(.4,0,.2,1) .35s">
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">את מסתובבת בעולם עם תחושה שאת חייבת להחזיק את הכל. בנית חומות של עשייה מתמדת ושליטה, כי למדת מוקדם מדי שלא תמיד בטוח להזדקק או להראות פגיעות.</p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">את שומרת בתוכך סוד של בדידות ומפחדת שאם תרפי לרגע הכל יתפרץ.</p>
@@ -642,17 +657,17 @@ input,textarea,button{font-family:'Assistant',sans-serif}
       </div>
 
       <div style="background:#fff;border:1px solid rgba(123,158,135,.15);border-radius:16px;overflow:hidden">
-        <button class="art-head" ref="{{ head4 }}" onClick="{{ toggle4 }}" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+        <button class="art-head" ref="{{ head4 }}" onClick="{{ toggle4 }}" aria-expanded="{{ open4 }}" aria-controls="art-body-4" style="width:100%;background:none;border:none;padding:1.6rem 1.8rem;cursor:pointer;text-align:right;direction:rtl;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
           <img class="art-icon" src="illustrations/icon-5.webp" alt="" style="width:104px;height:104px;flex-shrink:0;object-fit:contain;transform:scale(1.5);mix-blend-mode:multiply;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
           <span style="flex:1;text-align:right">
             <span style="display:block;font-size:.72rem;color:#7B9E87;letter-spacing:.1em;margin-bottom:.4rem">על הקשר הטיפולי</span>
             <span style="display:block;font-family:'Bellefair',serif;font-size:1.14rem;font-weight:400;color:#2C3A2F;line-height:1.4;margin-bottom:.4rem">כשאת לא צריכה להסביר הכל</span>
             <span style="display:block;font-size:.87rem;color:#64786A;line-height:1.75">על מה שקורה כשמישהי פשוט נמצאת שם איתך.</span>
           </span>
-          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem">{{ sign4 }}</span>
+          <span style="font-size:1.3rem;color:#A8C4B0;flex-shrink:0;line-height:1;margin-top:.3rem" aria-hidden="true">{{ sign4 }}</span>
         </button>
         <div style="display:grid;grid-template-rows:{{ rows4 }};transition:grid-template-rows 1.4s cubic-bezier(.25,.6,.2,1)">
-          <div style="overflow:hidden;min-height:0">
+          <div id="art-body-4" role="region" style="overflow:hidden;min-height:0">
           <div style="padding:1.6rem 1.8rem 1.9rem;border-top:1px solid rgba(123,158,135,.15);text-align:right;opacity:{{ op4 }};transition:opacity 1s cubic-bezier(.4,0,.2,1) .35s">
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">יש רגע בטיפול שקשה לתאר אותו במילים. הרגע שבו מישהי מפסיקה להסביר.</p>
             <p style="font-size:.95rem;color:#5A6E5E;line-height:1.95;margin:0 0 1rem">לא כי נגמרו לה המילים, אלא כי היא מרגישה שכבר לא צריך. שמה שהיא מביאה מתקבל בלי שתצטרך להצדיק אותו, לארוז אותו יפה או לוודא שהוא הגיוני.</p>
@@ -699,12 +714,15 @@ input,textarea,button{font-family:'Assistant',sans-serif}
     <p style="text-align:center;margin:2.6rem 0 0;font-size:.9rem;color:#5A6E5E;line-height:2.1"><a href="tel:0548121717" style="width: 89px; height: 31px">054-8121717</a> &nbsp;·&nbsp; <a href="mailto:anna@meyuhas.tv">anna@meyuhas.tv</a><br>פתח תקווה &nbsp;·&nbsp; תל אביב &nbsp;·&nbsp; זום</p>
   </section>
 
-  <footer style="background:#2C3A2F;color:rgba(255,255,255,.6);padding:2.6rem clamp(1.2rem,4vw,4rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+  </main>
+
+  <footer role="contentinfo" style="background:#2C3A2F;color:rgba(255,255,255,.6);padding:2.6rem clamp(1.2rem,4vw,4rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
     <p style="font-family:'Bellefair',serif;font-size:1rem;color:rgba(255,255,255,.75);font-weight:300;margin:0">אנה מיוחס</p>
     <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
       <a href="tel:0548121717" style="color:rgba(255,255,255,.65);font-size:.83rem" style-hover="color:#A8C4B0">054-8121717</a>
       <a href="mailto:anna@meyuhas.tv" style="color:rgba(255,255,255,.65);font-size:.83rem" style-hover="color:#A8C4B0">anna@meyuhas.tv</a>
       <a href="https://wa.me/972548121717" target="_blank" style="color:rgba(255,255,255,.65);font-size:.83rem" style-hover="color:#A8C4B0">וואטסאפ</a>
+      <a href="/accessibility.html" style="color:rgba(255,255,255,.65);font-size:.83rem" style-hover="color:#A8C4B0">הצהרת נגישות</a>
     </div>
     <p style="font-size:.78rem;margin:0">פסיכותרפיה גופנית־נפשית נשית</p>
   </footer>

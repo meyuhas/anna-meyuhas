@@ -44,14 +44,21 @@ footer{background:#2C3A2F;color:rgba(255,255,255,.6);padding:2.4rem clamp(1.2rem
 footer a{color:rgba(255,255,255,.65)}
 footer a:hover{color:#A8C4B0}
 @media(max-width:520px){.card{padding:1.3rem}}
+/* === נגישות: תקן ישראלי 5568 / WCAG 2.0 AA === */
+:focus-visible{outline:3px solid #2C3A2F;outline-offset:3px;border-radius:3px}
+.skip-link{position:absolute;right:-9999px;top:0;z-index:200;background:#2C3A2F;color:#fff;padding:.8rem 1.4rem;border-radius:0 0 10px 0;font-size:.95rem}
+.skip-link:focus{right:0;color:#fff}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(prefers-contrast:more){body{color:#1C2620}a{text-decoration:underline}}
 </style>
 </head>
 <body>
-<nav class="nav">
+<a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
+<nav class="nav" aria-label="ניווט ראשי">
   <a href="../index.html" style="font-family:'Bellefair',serif;font-size:1.08rem;color:#2C3A2F">אנה מיוחס</a>
   <a href="../index.html#articles" style="font-size:.84rem;color:#64786A">← לכל המחשבות</a>
 </nav>
-<div class="wrap">
+<main id="main" class="wrap">
   <article class="card">
     <img src="../illustrations/icon-5.webp" alt="" style="width:180px;height:180px;object-fit:contain;transform:scale(1.45);mix-blend-mode:multiply;display:block;margin:0 auto .2rem;mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 34%,rgba(0,0,0,.55) 62%,rgba(0,0,0,0) 84%)">
     <div style="text-align:center"><span class="kicker">על הקשר הטיפולי</span>
@@ -83,13 +90,14 @@ footer a:hover{color:#A8C4B0}
     </div>
   </article>
   <p style="text-align:center;margin:2rem 0 0;font-size:.88rem"><a href="../index.html#articles">← חזרה לכל המחשבות מהחדר</a></p>
-</div>
-<footer>
+</main>
+<footer role="contentinfo">
   <p style="font-family:'Bellefair',serif;font-size:1rem;color:rgba(255,255,255,.75);margin:0">אנה מיוחס</p>
   <div style="display:flex;gap:1.4rem;flex-wrap:wrap">
     <a href="tel:0548121717">054-8121717</a>
     <a href="mailto:anna@meyuhas.tv">anna@meyuhas.tv</a>
     <a href="https://wa.me/972548121717" target="_blank" rel="noopener">וואטסאפ</a>
+    <a href="/accessibility.html">הצהרת נגישות</a>
   </div>
   <p style="margin:0">פסיכותרפיה גופנית־נפשית נשית</p>
 </footer>
