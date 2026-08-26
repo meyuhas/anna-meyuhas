@@ -29,7 +29,22 @@
 const m = fs.readFileSync('index.html','utf8').match(/<script type="text\/x-dc"[^>]*>([\s\S]*?)<\/script>/);
 ```
 
-פרסום: `git push origin main` מתוך `~/GitHub/anna-meyuhas`. נטליפיי בונה אוטומטית תוך 30-60 שניות.
+**פרסום: לא דוחפים ל-`main`.**
+
+התוכנית החינמית בנטליפיי נותנת 300 קרדיטים לחודש, וכל דיפלוי עולה כ-15 - כלומר **כעשרים דיפלויים בחודש לכל הטים**. הטים משותף עם דף הנחיתה `red-detox`, אז דחיפה כאן גורעת גם משם. משך הבנייה לא משנה.
+
+ההגדרה היא `Deploy only the production branch`, ולכן ענף עבודה לא עולה כלום:
+
+```bash
+git checkout -b edits            # ענף עבודה
+git push origin edits            # אפס קרדיטים
+# רק כשהכל מוכן ומאומת:
+git checkout main && git merge edits && git push   # דיפלוי אחד
+```
+
+**אין לפתוח Pull Request** - הוא מייצר Deploy Preview שלא אומת כפטור.
+
+מחזור החיוב מתאפס ב-15 בכל חודש. נטליפיי בונה תוך 30-60 שניות.
 
 אימות שהשינוי עלה: `curl -s https://anna-meyuhas.com | grep <מחרוזת>`
 
